@@ -24,6 +24,13 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const TestingPage = lazy(() => import('./pages/TestingPage'));
 const DocumentationPage = lazy(() => import('./pages/DocumentationPage'));
 const AuditPage = lazy(() => import('./pages/AuditPage'));
+const EcoBotPage = lazy(() => import('./pages/EcoBotPage'));
+const CarbonScannerPage = lazy(() => import('./pages/CarbonScannerPage'));
+const CommunityImpactPage = lazy(() => import('./pages/CommunityImpactPage'));
+const GoalsPage = lazy(() => import('./pages/GoalsPage'));
+const AchievementsPage = lazy(() => import('./pages/AchievementsPage'));
+const MethodologyPage = lazy(() => import('./pages/MethodologyPage'));
+const ResourceCenterPage = lazy(() => import('./pages/ResourceCenterPage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -65,6 +72,7 @@ interface UserDataType {
   history: { date: string; score: number }[];
   activeChallenges: ActiveChallenge[];
   completedChallenges: CompletedChallenge[];
+  learningProgress?: number;
 }
 
 interface DataContextType {
@@ -89,6 +97,7 @@ export const DataContext = createContext<DataContextType>({
     history: [],
     activeChallenges: [],
     completedChallenges: [],
+    learningProgress: 0,
   },
   setUserData: () => {},
   resetData: () => {},
@@ -104,6 +113,7 @@ const defaultUserData: UserDataType = {
   history: [],
   activeChallenges: [],
   completedChallenges: [],
+  learningProgress: 0,
 };
 
 function App() {
@@ -122,6 +132,7 @@ function App() {
         ...parsed,
         activeChallenges: parsed.activeChallenges || [],
         completedChallenges: parsed.completedChallenges || [],
+        learningProgress: parsed.learningProgress || 0,
       };
     }
     return defaultUserData;
@@ -175,6 +186,13 @@ function App() {
                     <Route path="/testing" element={<TestingPage />} />
                     <Route path="/docs" element={<DocumentationPage />} />
                     <Route path="/audit-report" element={<AuditPage />} />
+                    <Route path="/ecobot" element={<EcoBotPage />} />
+                    <Route path="/carbon-scanner" element={<CarbonScannerPage />} />
+                    <Route path="/community-impact" element={<CommunityImpactPage />} />
+                    <Route path="/goals" element={<GoalsPage />} />
+                    <Route path="/achievements" element={<AchievementsPage />} />
+                    <Route path="/methodology" element={<MethodologyPage />} />
+                    <Route path="/resources" element={<ResourceCenterPage />} />
                   </Routes>
                 </Suspense>
               </main>

@@ -25,10 +25,10 @@ export default function Header() {
     { path: '/', label: 'Home' },
     { path: '/dashboard', label: 'Dashboard' },
     { path: '/calculator', label: 'Calculator' },
-    { path: '/ai-coach', label: 'AI Coach' },
+    { path: '/ecobot', label: 'EcoBot' },
     { path: '/challenges', label: 'Challenges' },
     { path: '/learning', label: 'Learning' },
-    { path: '/docs', label: 'Docs' },
+    { path: '/goals', label: 'Goals' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -145,10 +145,10 @@ export default function Header() {
                   {link.label === 'Home' && <Leaf className="h-4 w-4" />}
                   {link.label === 'Dashboard' && <BarChart3 className="h-4 w-4" />}
                   {link.label === 'Calculator' && <Calculator className="h-4 w-4" />}
-                  {link.label === 'AI Coach' && <MessageCircle className="h-4 w-4" />}
+                  {link.label === 'EcoBot' && <MessageCircle className="h-4 w-4" />}
                   {link.label === 'Challenges' && <Target className="h-4 w-4" />}
                   {link.label === 'Learning' && <BookOpen className="h-4 w-4" />}
-                  {link.label === 'Docs' && <FileText className="h-4 w-4" />}
+                  {link.label === 'Goals' && <Target className="h-4 w-4" />}
                   <span>{link.label}</span>
                 </Link>
               ))}

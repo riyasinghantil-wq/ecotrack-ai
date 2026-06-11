@@ -11,7 +11,7 @@ export default function Footer() {
       links: [
         { label: 'Dashboard', path: '/dashboard' },
         { label: 'Calculator', path: '/calculator' },
-        { label: 'AI Coach', path: '/ai-coach' },
+        { label: 'EcoBot AI', path: '/ecobot' },
         { label: 'Challenges', path: '/challenges' },
       ],
     },
@@ -19,9 +19,18 @@ export default function Footer() {
       title: 'Resources',
       links: [
         { label: 'Learning Center', path: '/learning' },
+        { label: 'Carbon Scanner', path: '/carbon-scanner' },
+        { label: 'Resource Hub', path: '/resources' },
+        { label: 'Methodology', path: '/methodology' },
+      ],
+    },
+    {
+      title: 'Progress',
+      links: [
+        { label: 'Goals', path: '/goals' },
+        { label: 'Achievements', path: '/achievements' },
+        { label: 'Community Impact', path: '/community-impact' },
         { label: 'Carbon Tracker', path: '/carbon-tracker' },
-        { label: 'Electricity Analyzer', path: '/electricity' },
-        { label: 'Impact Analysis', path: '/impact' },
       ],
     },
     {
@@ -31,13 +40,6 @@ export default function Footer() {
         { label: 'Contact', path: '/contact' },
         { label: 'FAQ', path: '/faq' },
         { label: 'Privacy Policy', path: '/privacy' },
-      ],
-    },
-    {
-      title: 'Account',
-      links: [
-        { label: 'Settings', path: '/settings' },
-        { label: 'Leaderboard', path: '/leaderboard' },
       ],
     },
     {
