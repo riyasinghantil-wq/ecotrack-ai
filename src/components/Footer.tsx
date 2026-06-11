@@ -40,6 +40,14 @@ export default function Footer() {
         { label: 'Leaderboard', path: '/leaderboard' },
       ],
     },
+    {
+      title: 'Quality',
+      links: [
+        { label: 'Testing Suite', path: '/testing' },
+        { label: 'Documentation', path: '/docs' },
+        { label: 'Audit Report', path: '/audit-report' },
+      ],
+    },
   ];
 
   return (

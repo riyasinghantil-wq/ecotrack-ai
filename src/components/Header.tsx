@@ -13,6 +13,7 @@ import {
   Target,
   BookOpen,
   Settings,
+  FileText,
 } from 'lucide-react';
 
 export default function Header() {
@@ -27,6 +28,7 @@ export default function Header() {
     { path: '/ai-coach', label: 'AI Coach' },
     { path: '/challenges', label: 'Challenges' },
     { path: '/learning', label: 'Learning' },
+    { path: '/docs', label: 'Docs' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -146,6 +148,7 @@ export default function Header() {
                   {link.label === 'AI Coach' && <MessageCircle className="h-4 w-4" />}
                   {link.label === 'Challenges' && <Target className="h-4 w-4" />}
                   {link.label === 'Learning' && <BookOpen className="h-4 w-4" />}
+                  {link.label === 'Docs' && <FileText className="h-4 w-4" />}
                   <span>{link.label}</span>
                 </Link>
               ))}

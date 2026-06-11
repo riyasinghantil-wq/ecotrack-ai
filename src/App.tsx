@@ -1,23 +1,41 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, createContext, useContext, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import LandingPage from './pages/LandingPage';
-import CalculatorPage from './pages/CalculatorPage';
-import AICoachPage from './pages/AICoachPage';
-import DashboardPage from './pages/DashboardPage';
-import ChallengesPage from './pages/ChallengesPage';
-import LeaderboardPage from './pages/LeaderboardPage';
-import CarbonTrackerPage from './pages/CarbonTrackerPage';
-import ElectricityAnalyzerPage from './pages/ElectricityAnalyzerPage';
-import LearningCenterPage from './pages/LearningCenterPage';
-import ImpactPage from './pages/ImpactPage';
-import SettingsPage from './pages/SettingsPage';
-import AboutPage from './pages/AboutPage';
-import PrivacyPage from './pages/PrivacyPage';
-import FAQPage from './pages/FAQPage';
-import ContactPage from './pages/ContactPage';
+import ErrorBoundary from './components/ErrorBoundary';
+
+// Lazy load pages for code splitting and faster initial load
+const LandingPage = lazy(() => import('./pages/LandingPage'));
+const CalculatorPage = lazy(() => import('./pages/CalculatorPage'));
+const AICoachPage = lazy(() => import('./pages/AICoachPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const ChallengesPage = lazy(() => import('./pages/ChallengesPage'));
+const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
+const CarbonTrackerPage = lazy(() => import('./pages/CarbonTrackerPage'));
+const ElectricityAnalyzerPage = lazy(() => import('./pages/ElectricityAnalyzerPage'));
+const LearningCenterPage = lazy(() => import('./pages/LearningCenterPage'));
+const ImpactPage = lazy(() => import('./pages/ImpactPage'));
+const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const TestingPage = lazy(() => import('./pages/TestingPage'));
+const DocumentationPage = lazy(() => import('./pages/DocumentationPage'));
+const AuditPage = lazy(() => import('./pages/AuditPage'));
+
+// Loading fallback component
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+      <div className="text-center">
+        <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" aria-hidden="true" />
+        <p className="text-gray-500 dark:text-gray-400 text-sm">Loading...</p>
+      </div>
+    </div>
+  );
+}
 
 interface ThemeContextType {
   darkMode: boolean;
@@ -133,29 +151,36 @@ function App() {
       <DataContext.Provider value={{ userData, setUserData, resetData }}>
         <Router>
           <ScrollToTop />
-          <div className={`min-h-screen flex flex-col ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-            <Header />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/dashboard" element={<DashboardPage />} />
-                <Route path="/calculator" element={<CalculatorPage />} />
-                <Route path="/ai-coach" element={<AICoachPage />} />
-                <Route path="/challenges" element={<ChallengesPage />} />
-                <Route path="/leaderboard" element={<LeaderboardPage />} />
-                <Route path="/carbon-tracker" element={<CarbonTrackerPage />} />
-                <Route path="/electricity" element={<ElectricityAnalyzerPage />} />
-                <Route path="/learning" element={<LearningCenterPage />} />
-                <Route path="/impact" element={<ImpactPage />} />
-                <Route path="/settings" element={<SettingsPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/privacy" element={<PrivacyPage />} />
-                <Route path="/faq" element={<FAQPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
+          <ErrorBoundary>
+            <div className={`min-h-screen flex flex-col ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+              <Header />
+              <main className="flex-grow">
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/calculator" element={<CalculatorPage />} />
+                    <Route path="/ai-coach" element={<AICoachPage />} />
+                    <Route path="/challenges" element={<ChallengesPage />} />
+                    <Route path="/leaderboard" element={<LeaderboardPage />} />
+                    <Route path="/carbon-tracker" element={<CarbonTrackerPage />} />
+                    <Route path="/electricity" element={<ElectricityAnalyzerPage />} />
+                    <Route path="/learning" element={<LearningCenterPage />} />
+                    <Route path="/impact" element={<ImpactPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/privacy" element={<PrivacyPage />} />
+                    <Route path="/faq" element={<FAQPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/testing" element={<TestingPage />} />
+                    <Route path="/docs" element={<DocumentationPage />} />
+                    <Route path="/audit-report" element={<AuditPage />} />
+                  </Routes>
+                </Suspense>
+              </main>
+              <Footer />
+            </div>
+          </ErrorBoundary>
         </Router>
       </DataContext.Provider>
     </ThemeContext.Provider>
