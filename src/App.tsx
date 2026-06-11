@@ -35,6 +35,9 @@ const RoadmapPage = lazy(() => import('./pages/RoadmapPage'));
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'));
 const WeeklyReportPage = lazy(() => import('./pages/WeeklyReportPage'));
 const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage'));
+const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
+const SecurityPage = lazy(() => import('./pages/SecurityPage'));
+const PerformancePage = lazy(() => import('./pages/PerformancePage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -169,7 +172,7 @@ function App() {
           <ErrorBoundary>
             <div className={`min-h-screen flex flex-col ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
               <Header />
-              <main className="flex-grow">
+              <main id="main-content" className="flex-grow" tabIndex={-1}>
                 <Suspense fallback={<PageLoader />}>
                   <Routes>
                     <Route path="/" element={<LandingPage />} />
@@ -201,6 +204,9 @@ function App() {
                     <Route path="/analytics" element={<AnalyticsPage />} />
                     <Route path="/weekly-report" element={<WeeklyReportPage />} />
                     <Route path="/admin" element={<AdminDashboardPage />} />
+                    <Route path="/accessibility" element={<AccessibilityPage />} />
+                    <Route path="/security" element={<SecurityPage />} />
+                    <Route path="/performance" element={<PerformancePage />} />
                   </Routes>
                 </Suspense>
               </main>

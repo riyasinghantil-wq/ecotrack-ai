@@ -48,6 +48,15 @@ export default function Footer() {
         { label: 'Testing Suite', path: '/testing' },
         { label: 'Documentation', path: '/docs' },
         { label: 'Audit Report', path: '/audit-report' },
+        { label: 'Accessibility', path: '/accessibility' },
+      ],
+    },
+    {
+      title: 'Standards',
+      links: [
+        { label: 'Security', path: '/security' },
+        { label: 'Performance', path: '/performance' },
+        { label: 'Methodology', path: '/methodology' },
       ],
     },
     {
