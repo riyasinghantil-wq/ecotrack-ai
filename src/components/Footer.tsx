@@ -29,8 +29,25 @@ export default function Footer() {
       links: [
         { label: 'Goals', path: '/goals' },
         { label: 'Achievements', path: '/achievements' },
+        { label: 'Roadmap', path: '/roadmap' },
+        { label: 'Analytics', path: '/analytics' },
+      ],
+    },
+    {
+      title: 'Reports',
+      links: [
+        { label: 'Weekly Report', path: '/weekly-report' },
         { label: 'Community Impact', path: '/community-impact' },
         { label: 'Carbon Tracker', path: '/carbon-tracker' },
+        { label: 'Admin Dashboard', path: '/admin' },
+      ],
+    },
+    {
+      title: 'Quality',
+      links: [
+        { label: 'Testing Suite', path: '/testing' },
+        { label: 'Documentation', path: '/docs' },
+        { label: 'Audit Report', path: '/audit-report' },
       ],
     },
     {
@@ -40,14 +57,6 @@ export default function Footer() {
         { label: 'Contact', path: '/contact' },
         { label: 'FAQ', path: '/faq' },
         { label: 'Privacy Policy', path: '/privacy' },
-      ],
-    },
-    {
-      title: 'Quality',
-      links: [
-        { label: 'Testing Suite', path: '/testing' },
-        { label: 'Documentation', path: '/docs' },
-        { label: 'Audit Report', path: '/audit-report' },
       ],
     },
   ];

@@ -31,6 +31,10 @@ const GoalsPage = lazy(() => import('./pages/GoalsPage'));
 const AchievementsPage = lazy(() => import('./pages/AchievementsPage'));
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage'));
 const ResourceCenterPage = lazy(() => import('./pages/ResourceCenterPage'));
+const RoadmapPage = lazy(() => import('./pages/RoadmapPage'));
+const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'));
+const WeeklyReportPage = lazy(() => import('./pages/WeeklyReportPage'));
+const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -193,6 +197,10 @@ function App() {
                     <Route path="/achievements" element={<AchievementsPage />} />
                     <Route path="/methodology" element={<MethodologyPage />} />
                     <Route path="/resources" element={<ResourceCenterPage />} />
+                    <Route path="/roadmap" element={<RoadmapPage />} />
+                    <Route path="/analytics" element={<AnalyticsPage />} />
+                    <Route path="/weekly-report" element={<WeeklyReportPage />} />
+                    <Route path="/admin" element={<AdminDashboardPage />} />
                   </Routes>
                 </Suspense>
               </main>
