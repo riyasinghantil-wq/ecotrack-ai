@@ -38,6 +38,7 @@ const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage'));
 const AccessibilityPage = lazy(() => import('./pages/AccessibilityPage'));
 const SecurityPage = lazy(() => import('./pages/SecurityPage'));
 const PerformancePage = lazy(() => import('./pages/PerformancePage'));
+const QualityAssurancePage = lazy(() => import('./pages/QualityAssurancePage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -207,6 +208,7 @@ function App() {
                     <Route path="/accessibility" element={<AccessibilityPage />} />
                     <Route path="/security" element={<SecurityPage />} />
                     <Route path="/performance" element={<PerformancePage />} />
+                    <Route path="/quality" element={<QualityAssurancePage />} />
                   </Routes>
                 </Suspense>
               </main>

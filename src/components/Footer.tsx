@@ -45,8 +45,8 @@ export default function Footer() {
     {
       title: 'Quality',
       links: [
+        { label: 'Quality Assurance', path: '/quality' },
         { label: 'Testing Suite', path: '/testing' },
-        { label: 'Documentation', path: '/docs' },
         { label: 'Audit Report', path: '/audit-report' },
         { label: 'Accessibility', path: '/accessibility' },
       ],
